@@ -1,0 +1,31 @@
+.voice-topic-container {
+  margin-top: 0.75rem;
+  margin-bottom: 1rem;
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  background: rgba(15, 15, 15, 0.04);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.dark-theme .voice-topic-container {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.voice-topic-header {
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.voice-topic-body p {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.voice-topic-join-button {
+  border-radius: 999px;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.9rem;
+}
