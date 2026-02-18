@@ -9,9 +9,24 @@ export default {
 
       document.addEventListener("click", event => {
         if (event.target.classList.contains("voice-topic-join-button")) {
-          alert("Qui collegheremo la stanza vocale WebRTC basata sul topic ID!");
+
+          const topic = api.getCurrentTopic();
+          if (!topic) {
+            alert("Errore: impossibile trovare il topic ID.");
+            return;
+          }
+
+          const topicId = topic.id;
+          console.log("Topic ID:", topicId);
+
+          // Qui apriremo la stanza vocale
+          openVoiceRoom(topicId);
         }
       });
+
+      function openVoiceRoom(topicId) {
+        alert("Stanza vocale per topic ID: " + topicId);
+      }
     });
   }
 };
