@@ -11,7 +11,6 @@ export default {
       document.addEventListener("click", event => {
         if (event.target.classList.contains("voice-topic-join-button")) {
 
-          // Recuperiamo il topic corrente
           const topic = api.getCurrentTopic();
           if (!topic) {
             alert("Errore: impossibile trovare il topic ID.");
@@ -21,7 +20,6 @@ export default {
           const topicId = topic.id;
           console.log("Topic ID:", topicId);
 
-          // Apriamo la stanza vocale
           openVoiceRoom(topicId);
         }
       });
@@ -39,7 +37,7 @@ export default {
             <p>Topic ID: ${topicId}</p>
 
             <button class="btn btn-primary" id="start-voice">
-              Avvia audio
+              Avvia microfono
             </button>
 
             <br><br>
@@ -52,13 +50,28 @@ export default {
 
         document.body.appendChild(modal);
 
-        // Chiudi modale
         document.getElementById("close-voice").onclick = () => modal.remove();
 
-        // Listener per "Avvia audio" (qui metteremo WebRTC)
+        // Avvio microfono
         document.getElementById("start-voice").onclick = () => {
-          alert("Qui inizieremo la logica WebRTC (microfono + connessione).");
+          startMicrophone();
         };
+      }
+
+      // ------------------------------
+      // FUNZIONE: Attiva microfono (WebRTC base)
+      // ------------------------------
+      async function startMicrophone() {
+        try {
+          const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+          console.log("Microfono attivo:", stream);
+
+          alert("Microfono attivato! Controlla la console per vedere lo stream audio.");
+
+        } catch (error) {
+          console.error("Errore microfono:", error);
+          alert("Impossibile attivare il microfono.");
+        }
       }
     });
   }
