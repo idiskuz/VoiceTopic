@@ -1,5 +1,6 @@
 {
   "name": "VoiceTopic",
+  "component": true,
   "about_url": "https://github.com/idiskuz/VoiceTopic",
   "license_url": "https://github.com/idiskuz/VoiceTopic/blob/main/LICENSE",
   "authors": "Cristian Deraco",
